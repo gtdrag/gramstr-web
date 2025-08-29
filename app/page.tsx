@@ -51,29 +51,46 @@ export default function LandingPage() {
             Built by one developer trying to help people own their content.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <Button 
               size="lg" 
-              className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-6 text-lg"
-              onClick={() => window.open('https://github.com/yourusername/gramstr/releases', '_blank')}
+              className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-6 text-lg relative"
+              onClick={() => window.open('/api/download?platform=mac&format=dmg', '_blank')}
             >
               <Download className="mr-2 h-5 w-5" />
-              Download for Free
+              Download for macOS
+              <span className="absolute -top-2 -right-2 bg-green-500 text-xs px-2 py-1 rounded-full">v1.0</span>
             </Button>
             <Button 
               size="lg" 
               variant="outline" 
               className="border-gray-600 text-gray-300 hover:bg-gray-800 px-8 py-6 text-lg"
-              onClick={() => window.open('https://github.com/yourusername/gramstr', '_blank')}
+              onClick={() => window.open('https://github.com/gtdrag/gramstr', '_blank')}
             >
               <Github className="mr-2 h-5 w-5" />
               View on GitHub
             </Button>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-orange-500/50 text-orange-400 hover:bg-orange-500/10 px-8 py-6 text-lg"
+              onClick={() => {
+                document.getElementById('donation')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              <Heart className="mr-2 h-5 w-5" />
+              Support Project
+            </Button>
           </div>
 
-          <p className="text-sm text-gray-500">
-            Available for macOS, Windows, and Linux
-          </p>
+          <div className="text-center space-y-1 mb-8">
+            <p className="text-sm text-gray-400">
+              🍎 macOS (Apple Silicon & Intel) - Available Now
+            </p>
+            <p className="text-sm text-gray-500">
+              🪟 Windows - Coming Soon • 🐧 Linux - Coming Soon
+            </p>
+          </div>
         </div>
       </div>
 
@@ -194,7 +211,7 @@ export default function LandingPage() {
         <div className="text-center">
           <div className="flex items-center justify-center gap-6 mb-4">
             <a 
-              href="https://github.com/yourusername/gramstr" 
+              href="https://github.com/gtdrag/gramstr" 
               className="text-gray-400 hover:text-white transition-colors"
               target="_blank"
               rel="noopener noreferrer"
