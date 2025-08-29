@@ -8,7 +8,8 @@ import {
   Bitcoin, 
   Copy,
   Check,
-  QrCode
+  QrCode,
+  X
 } from "lucide-react"
 import QRCode from "qrcode"
 
@@ -21,6 +22,9 @@ export function SimpleDonationSection() {
   const [bitcoinQR, setBitcoinQR] = useState<string>("")
   const [copiedLightning, setCopiedLightning] = useState(false)
   const [copiedBitcoin, setCopiedBitcoin] = useState(false)
+  const [showAmountModal, setShowAmountModal] = useState(false)
+  const [selectedAmount, setSelectedAmount] = useState<{sats: number, label: string} | null>(null)
+  const [amountQR, setAmountQR] = useState<string>("")
 
   useEffect(() => {
     // Generate QR codes
@@ -52,6 +56,22 @@ export function SimpleDonationSection() {
       setCopiedBitcoin(true)
       setTimeout(() => setCopiedBitcoin(false), 2000)
     }
+  }
+
+  const handleAmountClick = async (sats: number, label: string) => {
+    setSelectedAmount({ sats, label })
+    // Generate QR with amount for Lightning
+    const lightningUri = `lightning:${LIGHTNING_ADDRESS}?amount=${sats}&message=Gramstr%20Donation%20${label}`
+    const qr = await QRCode.toDataURL(lightningUri, {
+      width: 300,
+      margin: 2,
+      color: {
+        dark: '#8B5CF6',
+        light: '#1F2937'
+      }
+    })
+    setAmountQR(qr)
+    setShowAmountModal(true)
   }
 
   return (
@@ -165,11 +185,7 @@ export function SimpleDonationSection() {
           <p className="text-center text-gray-400 mb-6">Choose an amount to donate:</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <button
-              onClick={() => {
-                // Generate Lightning invoice URL with amount
-                const url = `lightning:${LIGHTNING_ADDRESS}?amount=1000`
-                window.open(url, '_blank')
-              }}
+              onClick={() => handleAmountClick(1000, 'Coffee')}
               className="group bg-gradient-to-br from-purple-900/20 to-purple-800/20 border border-purple-500/30 rounded-lg p-4 hover:border-purple-400 hover:scale-105 transition-all"
             >
               <p className="text-2xl mb-2">☕</p>
@@ -178,10 +194,7 @@ export function SimpleDonationSection() {
             </button>
             
             <button
-              onClick={() => {
-                const url = `lightning:${LIGHTNING_ADDRESS}?amount=2100`
-                window.open(url, '_blank')
-              }}
+              onClick={() => handleAmountClick(2100, 'Beer')}
               className="group bg-gradient-to-br from-purple-900/20 to-purple-800/20 border border-purple-500/30 rounded-lg p-4 hover:border-purple-400 hover:scale-105 transition-all"
             >
               <p className="text-2xl mb-2">🍺</p>
@@ -190,10 +203,7 @@ export function SimpleDonationSection() {
             </button>
             
             <button
-              onClick={() => {
-                const url = `lightning:${LIGHTNING_ADDRESS}?amount=5000`
-                window.open(url, '_blank')
-              }}
+              onClick={() => handleAmountClick(5000, 'Pizza')}
               className="group bg-gradient-to-br from-purple-900/20 to-purple-800/20 border border-purple-500/30 rounded-lg p-4 hover:border-purple-400 hover:scale-105 transition-all"
             >
               <p className="text-2xl mb-2">🍕</p>
@@ -202,10 +212,7 @@ export function SimpleDonationSection() {
             </button>
             
             <button
-              onClick={() => {
-                const url = `lightning:${LIGHTNING_ADDRESS}?amount=10000`
-                window.open(url, '_blank')
-              }}
+              onClick={() => handleAmountClick(10000, 'Lunch')}
               className="group bg-gradient-to-br from-purple-900/20 to-purple-800/20 border border-purple-500/30 rounded-lg p-4 hover:border-purple-400 hover:scale-105 transition-all"
             >
               <p className="text-2xl mb-2">🍔</p>
@@ -214,10 +221,7 @@ export function SimpleDonationSection() {
             </button>
             
             <button
-              onClick={() => {
-                const url = `lightning:${LIGHTNING_ADDRESS}?amount=21000`
-                window.open(url, '_blank')
-              }}
+              onClick={() => handleAmountClick(21000, 'Nice')}
               className="group bg-gradient-to-br from-orange-900/20 to-orange-800/20 border border-orange-500/30 rounded-lg p-4 hover:border-orange-400 hover:scale-105 transition-all"
             >
               <p className="text-2xl mb-2">⚡</p>
@@ -226,10 +230,7 @@ export function SimpleDonationSection() {
             </button>
             
             <button
-              onClick={() => {
-                const url = `lightning:${LIGHTNING_ADDRESS}?amount=50000`
-                window.open(url, '_blank')
-              }}
+              onClick={() => handleAmountClick(50000, 'Generous')}
               className="group bg-gradient-to-br from-orange-900/20 to-orange-800/20 border border-orange-500/30 rounded-lg p-4 hover:border-orange-400 hover:scale-105 transition-all"
             >
               <p className="text-2xl mb-2">💜</p>
@@ -238,10 +239,7 @@ export function SimpleDonationSection() {
             </button>
             
             <button
-              onClick={() => {
-                const url = `lightning:${LIGHTNING_ADDRESS}?amount=100000`
-                window.open(url, '_blank')
-              }}
+              onClick={() => handleAmountClick(100000, 'Amazing')}
               className="group bg-gradient-to-br from-orange-900/20 to-orange-800/20 border border-orange-500/30 rounded-lg p-4 hover:border-orange-400 hover:scale-105 transition-all"
             >
               <p className="text-2xl mb-2">🙏</p>
@@ -250,10 +248,7 @@ export function SimpleDonationSection() {
             </button>
             
             <button
-              onClick={() => {
-                const url = `lightning:${LIGHTNING_ADDRESS}?amount=210000`
-                window.open(url, '_blank')
-              }}
+              onClick={() => handleAmountClick(210000, 'Moon')}
               className="group bg-gradient-to-br from-yellow-900/20 to-yellow-800/20 border border-yellow-500/30 rounded-lg p-4 hover:border-yellow-400 hover:scale-105 transition-all"
             >
               <p className="text-2xl mb-2">🚀</p>
@@ -263,7 +258,7 @@ export function SimpleDonationSection() {
           </div>
           
           <p className="text-center text-gray-500 text-xs mt-4">
-            Clicking opens your Lightning wallet with the amount pre-filled
+            Click to show QR code with the exact amount
           </p>
         </Card>
 
@@ -277,6 +272,55 @@ export function SimpleDonationSection() {
           </p>
         </div>
       </div>
+
+      {/* Amount QR Modal */}
+      {showAmountModal && selectedAmount && (
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4" onClick={() => setShowAmountModal(false)}>
+          <Card className="bg-gray-900 border-purple-500/50 p-6 max-w-md w-full" onClick={(e) => e.stopPropagation()}>
+            <div className="flex justify-between items-start mb-4">
+              <div>
+                <h3 className="text-xl font-semibold text-white">Send {selectedAmount.sats.toLocaleString()} sats</h3>
+                <p className="text-gray-400 text-sm">{selectedAmount.label} donation</p>
+              </div>
+              <button
+                onClick={() => setShowAmountModal(false)}
+                className="text-gray-400 hover:text-white"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+            
+            {amountQR && (
+              <div className="bg-gray-800 rounded-lg p-4 mb-4">
+                <img src={amountQR} alt="Lightning QR with amount" className="w-full max-w-[300px] mx-auto" />
+              </div>
+            )}
+            
+            <div className="bg-gray-800/50 rounded-lg p-3 mb-4">
+              <p className="text-xs text-gray-400 mb-1">Lightning Address</p>
+              <p className="text-sm text-purple-300 font-mono">{LIGHTNING_ADDRESS}</p>
+              <p className="text-xs text-gray-500 mt-2">Amount: {selectedAmount.sats} sats</p>
+            </div>
+            
+            <Button
+              onClick={() => {
+                navigator.clipboard.writeText(LIGHTNING_ADDRESS)
+                // Also copy the amount to make it easier
+                alert(`Address copied! Send ${selectedAmount.sats} sats`)
+              }}
+              variant="outline"
+              className="w-full border-purple-500/50 hover:bg-purple-900/20"
+            >
+              <Copy className="h-4 w-4 mr-2" />
+              Copy Address
+            </Button>
+            
+            <p className="text-xs text-gray-500 text-center mt-4">
+              Scan with any Lightning wallet • Send exact amount shown
+            </p>
+          </Card>
+        </div>
+      )}
     </div>
   )
 }
