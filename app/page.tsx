@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { AccordionItem } from "@/components/ui/accordion"
-import { BTCPayDonationSection } from "@/components/btcpay-donation"
+import { OpenNodeDonationSection } from "@/components/opennode-donation"
 import { 
   Download, 
   Zap, 
@@ -389,7 +389,7 @@ export default function LandingPage() {
       </div>
 
       {/* Donation Section */}
-      <BTCPayDonationSection />
+      <OpenNodeDonationSection />
 
       {/* Trust Section Enhanced */}
       <div className="container mx-auto px-4 py-20">
