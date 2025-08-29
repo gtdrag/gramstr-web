@@ -13,7 +13,9 @@ import {
   Sparkles,
   Users,
   Code,
-  Coffee
+  Coffee,
+  Twitter,
+  Instagram
 } from "lucide-react"
 
 export default function LandingPage() {
@@ -118,9 +120,41 @@ export default function LandingPage() {
                 <h3 className="text-xl font-semibold text-white mb-1">
                   Hi, I'm George
                 </h3>
-                <p className="text-purple-400 text-sm mb-3">
+                <p className="text-purple-400 text-sm mb-2">
                   Class of '21 Bitcoiner
                 </p>
+                
+                {/* Social Links */}
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="text-gray-400 text-sm">Follow me:</span>
+                  <a 
+                    href="https://nostr.band/npub1kkr928xpntcl6jeg57jsqgjc4w86j5slkfa0q9qvkypzgdu8jp6q4f958l" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-purple-400 hover:text-purple-300 transition-colors"
+                    title="Nostr"
+                  >
+                    <Zap className="h-5 w-5" />
+                  </a>
+                  <a 
+                    href="https://x.com/georgetdrag" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-purple-400 hover:text-purple-300 transition-colors"
+                    title="X (Twitter)"
+                  >
+                    <Twitter className="h-5 w-5" />
+                  </a>
+                  <a 
+                    href="https://instagram.com/jagbagdrag" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-purple-400 hover:text-purple-300 transition-colors"
+                    title="Instagram"
+                  >
+                    <Instagram className="h-5 w-5" />
+                  </a>
+                </div>
                 <p className="text-gray-300 mb-4 leading-relaxed">
                   I built Gramstr because I believe people should own their content. 
                   Instagram can delete accounts, change algorithms, or disappear tomorrow. 
