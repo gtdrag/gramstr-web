@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { OpenNodeDonationSection } from "@/components/opennode-donation"
+import { SimpleDonationSection } from "@/components/simple-donation"
 import { 
   Download, 
   Zap, 
@@ -180,7 +180,7 @@ export default function LandingPage() {
       </div>
 
       {/* Donation Section */}
-      <OpenNodeDonationSection />
+      <SimpleDonationSection />
 
       {/* Simple Footer */}
       <footer className="container mx-auto px-4 py-12 border-t border-gray-800">
