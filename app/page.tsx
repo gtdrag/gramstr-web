@@ -35,9 +35,16 @@ export default function LandingPage() {
             <span className="text-sm text-purple-300">Free & Open Source</span>
           </div>
           
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            gramstr
-          </h1>
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <img 
+              src="/gramstr-icon.png" 
+              alt="Gramstr icon" 
+              className="w-16 h-16 md:w-20 md:h-20 rounded-xl shadow-lg"
+            />
+            <h1 className="text-5xl md:text-6xl font-bold text-white">
+              gramstr
+            </h1>
+          </div>
           
           <p className="text-xl text-gray-300 mb-8 leading-relaxed">
             A simple desktop app to download your Instagram content and share it on Nostr.
@@ -74,7 +81,7 @@ export default function LandingPage() {
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold text-white text-center mb-12">
-            What Gramstr Does
+            What gramstr Does
           </h2>
           
           <div className="grid md:grid-cols-3 gap-6 mb-16">
@@ -156,7 +163,7 @@ export default function LandingPage() {
                   </a>
                 </div>
                 <p className="text-gray-300 mb-4 leading-relaxed">
-                  I built Gramstr because I believe people should own their content. 
+                  I built gramstr (shoutout Claude) because I believe people should own their content. 
                   Instagram can delete accounts, change algorithms, or disappear tomorrow. 
                   Nostr gives us a chance at something better - a social network no one controls.
                 </p>
