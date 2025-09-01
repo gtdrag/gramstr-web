@@ -59,7 +59,7 @@ export default function LandingPage() {
             >
               <Download className="mr-2 h-5 w-5" />
               Download for macOS
-              <span className="absolute -top-2 -right-2 bg-green-500 text-xs px-2 py-1 rounded-full">v1.0</span>
+              <span className="absolute -top-2 -right-2 bg-green-500 text-xs px-2 py-1 rounded-full">v1.1</span>
             </Button>
             <Button 
               size="lg" 
