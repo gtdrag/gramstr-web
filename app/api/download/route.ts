@@ -4,8 +4,8 @@ import { NextResponse } from 'next/server'
 // For now, using GitHub releases as fallback
 const DOWNLOADS = {
   mac: {
-    dmg: process.env.DOWNLOAD_URL_MAC_DMG || 'https://github.com/gtdrag/gramstr/releases/download/v1.0.0/Gramstr-1.0.0-arm64.dmg',
-    zip: process.env.DOWNLOAD_URL_MAC_ZIP || 'https://github.com/gtdrag/gramstr/releases/download/v1.0.0/Gramstr-1.0.0-arm64-mac.zip',
+    dmg: process.env.DOWNLOAD_URL_MAC_DMG || 'https://github.com/gtdrag/gramstr/releases/download/v1.1.0/Gramstr-1.1.0-arm64.dmg',
+    zip: process.env.DOWNLOAD_URL_MAC_ZIP || 'https://github.com/gtdrag/gramstr/releases/download/v1.1.0/Gramstr-1.1.0-arm64-mac.zip',
   }
 }
 
