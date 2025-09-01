@@ -148,7 +148,7 @@ export default function LandingPage() {
                   Class of '21 Bitcoiner
                 </p>
                 
-                {/* Social Links */}
+                {/* Social Links */  }
                 <div className="flex items-center gap-4 mb-4">
                   <span className="text-gray-400 text-sm">Follow me:</span>
                   <a 
