@@ -183,8 +183,8 @@ export function SimpleDonationSection() {
           </Card>
         </div>
 
-        {/* Suggested Amounts - Clickable */}
-        <Card className="mt-8 bg-gray-800/30 border-gray-700 p-6">
+
+        {/* <Card className="mt-8 bg-gray-800/30 border-gray-700 p-6">
           <p className="text-center text-gray-400 mb-6">Choose an amount to donate:</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <button
@@ -263,7 +263,7 @@ export function SimpleDonationSection() {
           <p className="text-center text-gray-500 text-xs mt-4">
             Click to show QR code with the exact amount
           </p>
-        </Card>
+        </Card> */}
 
         {/* Footer */}
         <div className="mt-12 text-center">
