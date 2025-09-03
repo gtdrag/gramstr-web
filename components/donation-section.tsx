@@ -21,10 +21,10 @@ import {
 import { cn } from "@/lib/utils"
 
 // YOU NEED TO UPDATE THESE WITH YOUR ACTUAL ADDRESSES
-const LIGHTNING_ADDRESS = "gramstr@getalby.com" 
-const BITCOIN_ADDRESS = "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh"
-const NOSTR_NPUB = "npub1..." // Your Nostr npub for zaps
-const LNURL = "LNURL1DP68GURN8GHJ7..."
+const LIGHTNING_ADDRESS = "drag@primal.net" 
+const BITCOIN_ADDRESS = "bc1qp3fdxyy92du6p760ucp5m6u783luhdr48ajxgu"
+const NOSTR_NPUB = "drag@primal.net" // Lightning address for Nostr zaps
+const LNURL = "drag@primal.net" // Using Lightning address as LNURL
 
 // Wholecoiner Progress (in sats)
 const SATS_RAISED = 2100000 // Current amount raised (0.021 BTC)
@@ -405,14 +405,14 @@ export function DonationSection() {
                       <Zap className="h-8 w-8 text-white" />
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold text-white">@gramstr</h4>
+                      <h4 className="text-lg font-semibold text-white">@drag</h4>
                       <p className="text-sm text-purple-400">Building freedom tech</p>
                     </div>
                   </div>
                   
                   <div className="bg-gray-900/50 rounded-lg p-3 mb-4">
                     <label className="text-xs text-gray-500 uppercase tracking-wider mb-1 block">
-                      Nostr Public Key
+                      Lightning Address for Zaps
                     </label>
                     <code className="text-xs text-purple-400 font-mono break-all">
                       {NOSTR_NPUB}
@@ -433,13 +433,13 @@ export function DonationSection() {
                 </div>
 
                 <div className="flex gap-3">
-                  <a href="https://snort.social/p/npub..." target="_blank" rel="noopener noreferrer" className="flex-1">
+                  <a href="https://snort.social/" target="_blank" rel="noopener noreferrer" className="flex-1">
                     <Button variant="outline" className="w-full border-purple-500 text-purple-400 hover:bg-purple-500/10">
                       <ExternalLink className="h-4 w-4 mr-2" />
                       Zap on Snort
                     </Button>
                   </a>
-                  <a href="https://primal.net/profile/npub..." target="_blank" rel="noopener noreferrer" className="flex-1">
+                  <a href="https://primal.net/" target="_blank" rel="noopener noreferrer" className="flex-1">
                     <Button variant="outline" className="w-full border-purple-500 text-purple-400 hover:bg-purple-500/10">
                       <ExternalLink className="h-4 w-4 mr-2" />
                       Zap on Primal
