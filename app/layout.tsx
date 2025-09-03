@@ -9,6 +9,10 @@ export const metadata: Metadata = {
   title: 'Gramstr - Bridge Instagram to Nostr',
   description: 'Download your Instagram content and share it with the decentralized world. Own your content, own your audience.',
   keywords: 'instagram, nostr, download, content, decentralized, social media',
+  icons: {
+    icon: '/gramstr-icon.png',
+    apple: '/gramstr-icon.png',
+  },
   openGraph: {
     title: 'Gramstr - Bridge Instagram to Nostr',
     description: 'Download your Instagram content and share it with the decentralized world.',
