@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { SimpleDonationSection } from "@/components/simple-donation"
+import { trackDownload, trackGitHubClick } from "@/components/google-analytics"
 import { 
   Download, 
   Zap, 
@@ -55,7 +56,10 @@ export default function LandingPage() {
             <Button 
               size="lg" 
               className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-6 text-lg relative"
-              onClick={() => window.open('/api/download?platform=mac&format=dmg', '_blank')}
+              onClick={() => {
+                trackDownload('mac', 'dmg');
+                window.open('/api/download?platform=mac&format=dmg', '_blank');
+              }}
             >
               <Download className="mr-2 h-5 w-5" />
               Download for macOS
@@ -65,7 +69,10 @@ export default function LandingPage() {
               size="lg" 
               variant="outline" 
               className="border-gray-600 text-gray-300 hover:bg-gray-800 px-8 py-6 text-lg"
-              onClick={() => window.open('https://github.com/gtdrag/gramstr', '_blank')}
+              onClick={() => {
+                trackGitHubClick();
+                window.open('https://github.com/gtdrag/gramstr', '_blank');
+              }}
             >
               <Github className="mr-2 h-5 w-5" />
               View on GitHub
