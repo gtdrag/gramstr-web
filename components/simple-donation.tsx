@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
+import { trackDonation } from "@/components/google-analytics"
 import { 
   Zap, 
   Bitcoin, 
@@ -49,6 +50,7 @@ export function SimpleDonationSection() {
 
   const copyToClipboard = (text: string, type: 'lightning' | 'bitcoin') => {
     navigator.clipboard.writeText(text)
+    trackDonation(type)
     if (type === 'lightning') {
       setCopiedLightning(true)
       setTimeout(() => setCopiedLightning(false), 2000)
@@ -60,6 +62,7 @@ export function SimpleDonationSection() {
 
   const handleAmountClick = async (sats: number, label: string) => {
     setSelectedAmount({ sats, label })
+    trackDonation(`lightning_amount_${label}`)
     // Generate QR with amount for Lightning
     const lightningUri = `lightning:${LIGHTNING_ADDRESS}?amount=${sats}&message=Gramstr%20Donation%20${label}`
     const qr = await QRCode.toDataURL(lightningUri, {
