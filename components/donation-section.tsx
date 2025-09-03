@@ -300,20 +300,6 @@ export function DonationSection() {
                   </div>
                 </div>
 
-                {/* Suggested Amounts */}
-                <div className="grid grid-cols-3 gap-3">
-                  {donationTiers.slice(0, 6).map((tier) => (
-                    <button
-                      key={tier.amount}
-                      onClick={() => window.open(`lightning:${LIGHTNING_ADDRESS}?amount=${tier.amount}`, '_blank')}
-                      className="p-3 bg-gradient-to-r from-orange-500/10 to-yellow-500/10 border border-orange-500/30 rounded-lg hover:border-orange-500 transition-all hover:scale-105"
-                    >
-                      <div className="text-2xl mb-1">{tier.label.split(' ')[1]}</div>
-                      <div className="text-xs text-orange-400 font-bold">{tier.amount.toLocaleString()} sats</div>
-                      <div className="text-xs text-gray-500">{tier.label.split(' ')[0]}</div>
-                    </button>
-                  ))}
-                </div>
 
                 <a 
                   href={`lightning:${LIGHTNING_ADDRESS}`}
@@ -419,17 +405,6 @@ export function DonationSection() {
                     </code>
                   </div>
 
-                  <div className="grid grid-cols-4 gap-2">
-                    {[21, 420, 1000, 5000].map((amount) => (
-                      <button
-                        key={amount}
-                        className="py-2 px-3 bg-purple-500/20 border border-purple-500/30 rounded-lg hover:bg-purple-500/30 transition-colors"
-                      >
-                        <div className="text-lg">⚡</div>
-                        <div className="text-xs text-purple-400">{amount}</div>
-                      </button>
-                    ))}
-                  </div>
                 </div>
 
                 <div className="flex gap-3">
