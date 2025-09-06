@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { SimpleDonationSection } from "@/components/simple-donation"
+import { BugReportModal } from "@/components/bug-report"
 import { trackDownload, trackGitHubClick } from "@/components/google-analytics"
 import { 
   Download, 
@@ -22,6 +23,8 @@ import {
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-purple-900/20 to-gray-900">
+      {/* Bug Report Button */}
+      <BugReportModal />
       {/* Simple animated background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
